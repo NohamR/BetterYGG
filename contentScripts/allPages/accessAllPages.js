@@ -1,9 +1,13 @@
 hideSidebar();
 
-$(window).on('resize', function () {
+window.addEventListener('resize', function () {
     hideSidebar();
 });
 
 function hideSidebar() {
-    $(window).width() < 1750 ? $('#cat, .back-cat').removeClass('active') : $('#cat, .back-cat').addClass('active');
+    if (window.innerWidth < 1750) {
+        document.querySelectorAll('#cat, .back-cat').forEach(el => el.classList.remove('active'));
+    } else {
+        document.querySelectorAll('#cat, .back-cat').forEach(el => el.classList.add('active'));
+    }
 }

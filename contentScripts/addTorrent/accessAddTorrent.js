@@ -1,3 +1,4 @@
 var downloadButton = document.querySelector('a.butt');
-downloadButton.onclick = function () {};
-downloadButton.removeAttribute('onclick');
+if (downloadButton) {
+    downloadButton.onclick = function() { window.location.href = this.href; };
+}

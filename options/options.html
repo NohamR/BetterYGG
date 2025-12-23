@@ -1,101 +1,187 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexgg Options</title>
     <style>
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
         }
-        #discordIntegrationSection {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="checkbox"],
+        .form-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group small a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-group small a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .hidden {
             display: none;
         }
-        #displayAddCategoriesSection {
-            display: none;
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
         }
-        #addCategoriesSection {
-            display: none;
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        ul {
-            list-style-type: none;
+        button:hover {
+            background-color: #0056b3;
         }
-        li {
-            margin: 0 0 5px 0;
-        }
-        li.section {
-            margin: 15px 0 5px 0;
-        }
-        table, th, td {
-            border: 1px solid black;
+        table {
+            width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
         }
     </style>
 </head>
-<body cz-shortcut-listen="true">
-    <img class="center" src="../img/ygg.png" id="yggImage"><br/>
-    <ul>
-        <li>
-            <span>Ygg token: </span>
-            <input id="yggToken" type="text" size="35"/>
-        </li>
-        <li>
-            <span>Colonne de tri des recherches et cat&eacute;gories: </span>
-            <select id="searchSort">
-                <option value="name">Nom</option>
-                <option value="comment">Nbr commentaire</option>
-                <option value="publish_date">Date</option>
-                <option value="size">Taille</option>
-                <option value="completed">Nbr complet</option>
-                <option value="seed">Seed</option>
-                <option value="leech">Leech</option>
-            </select>
-        </li>
-        <li>
-            <span>Ordre du tri des recherches et cat&eacute;gories:</span>
-            <select id="searchOrder">
-                <option value="asc">Ascendant</option>
-                <option value="desc">Descendant</option>
-            </select>
-        </li>
-        <li class="section">
-            <span>Afficher le formulaire discord: </span>
-            <input id="displayDiscord" type="checkbox"/>
-        </li>
-        <div id="discordIntegrationSection">
-            <li>
-                <span>Discord Webhook url: </span>
-                <input id="discordWebhookUrl" type="text" size="150"/>
-            </li>
-            <li>
-                <span>Discord Username: </span>
-                <input id="discordUserName" type="text"/>
-            </li>
-        </div>
-        <li id="displayAddCategoriesSection" class="section">
-            <span>Modifier les cat&eacute;gories: </span>
-            <input id="displayAddCategories" type="checkbox"/>
-        </li>
-        <div id="addCategoriesSection">
-            <li>
-                <button id="saveCategories">Sauvegarder</button>
-                <button id="restoreCategories">Restaurer valeurs par d&eacute;faut</button>
-            </li>
-            <li>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="../img/ygg.png" alt="YGG Logo" id="yggImage">
+            <h1>Options BetterYGG</h1>
+        </header>
+
+        <form id="optionsForm">
+            <div class="form-group">
+                <label for="yggToken">Ygg Token:</label>
+                <input id="yggToken" type="text" size="35">
+                <small><a href="https://www.yggtorrent.org/user/account" target="_blank">Obtenir votre token ici</a></small>
+            </div>
+
+            <div class="form-group">
+                <label for="searchSort">Colonne de tri des recherches et catégories:</label>
+                <select id="searchSort">
+                    <option value="name">Nom</option>
+                    <option value="comment">Nbr commentaire</option>
+                    <option value="publish_date">Date</option>
+                    <option value="size">Taille</option>
+                    <option value="completed">Nbr complet</option>
+                    <option value="seed">Seed</option>
+                    <option value="leech">Leech</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="searchOrder">Ordre du tri des recherches et catégories:</label>
+                <select id="searchOrder">
+                    <option value="asc">Ascendant</option>
+                    <option value="desc">Descendant</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="displayDiscord">
+                    <input id="displayDiscord" type="checkbox">
+                    Afficher le formulaire Discord
+                </label>
+            </div>
+
+            <div id="discordIntegrationSection" class="section hidden">
+                <h3>Intégration Discord</h3>
+                <div class="form-group">
+                    <label for="discordWebhookUrl">Discord Webhook URL:</label>
+                    <input id="discordWebhookUrl" type="text" size="150">
+                </div>
+                <div class="form-group">
+                    <label for="discordUserName">Discord Username:</label>
+                    <input id="discordUserName" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="displayAddCategories">
+                    <input id="displayAddCategories" type="checkbox">
+                    Modifier les catégories
+                </label>
+            </div>
+
+            <div id="addCategoriesSection" class="section hidden">
+                <h3>Gestion des Catégories</h3>
+                <div class="button-group">
+                    <button type="button" id="saveCategories">Sauvegarder</button>
+                    <button type="button" id="restoreCategories">Restaurer valeurs par défaut</button>
+                </div>
                 <table id="categoriesTable">
                     <thead>
                         <tr>
-                            <th>Nom de cat&eacute;gorie</th>
+                            <th>Nom de catégorie</th>
                             <th>Saisonnier</th>
-                            <th>Url sur YGG</th>
+                            <th>URL sur YGG</th>
                         </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
-            </li>
-        </div>
-    </ul>
+            </div>
+        </form>
+    </div>
 
     <script src="options.js"></script>
 </body>

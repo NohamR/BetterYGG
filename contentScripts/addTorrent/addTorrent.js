@@ -15,6 +15,7 @@ downloadLine.insertAdjacentElement('afterend', torrentInfo);
 
 /* Add third party download button */
 var downloadButton = downloadLine.querySelector('a.butt');
+downloadButton.removeAttribute('id'); // remove "download-timer-btn"
 var flexButton = document.createElement('a');
 flexButton.appendChild(document.createTextNode('Télécharger via discord '));
 var span = document.createElement('span');
