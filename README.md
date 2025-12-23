@@ -1,7 +1,17 @@
 # BetterYGG
 Chrome extension for the website yggtorrent.org
 
-Retrouvez l'extension sur: https://chrome.google.com/webstore/detail/betterygg/dcheoaaanknbllbfccknfmiekbekkkhk
+## Installation
+
+1. Clonez le dépôt : `git clone https://github.com/NohamR/BetterYGG`
+
+2. Ouvrez Chrome et allez à `chrome://extensions/`
+
+3. Activez le mode développeur
+
+4. Cliquez sur "Charger l'extension non empaquetée"
+
+5. Sélectionnez le dossier du dépôt cloné
 
 Cette extension conçue pour le site yggtorrent.org permet de télécharger des torrents sans être authentifié. Pour cela rendez vous dans les options de l'extension et introduisez votre token Ygg. Ce token est disponible dans l'onglet mon compte du site.
 
