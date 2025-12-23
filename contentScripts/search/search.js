@@ -16,6 +16,7 @@ chrome.storage.sync.get(['yggToken'], function (value) {
             downloadIcon.setAttribute('src', chrome.runtime.getURL("img/download.png"));
             downloadButton.appendChild(downloadIcon);
             downloadButton.setAttribute('href', "https://yggapi.eu/torrent/" + torrentId + "/download?passkey=" + value.yggToken);
+            downloadButton.setAttribute('target', '_blank');
             cell.appendChild(downloadButton);
         }
     }
