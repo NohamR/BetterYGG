@@ -46,3 +46,10 @@ Ajustements mineurs:
 [1.2.9]
 - Mise à jour vers yggtorrent.org
 - Utilisation de yggapi.eu pour le téléchargement des torrents
+
+[1.3]
+- Suppression des éléments promotionnels :
+  - Élément "Compte Actif" avec lien donation
+  - Message de limite de téléchargements quotidiens
+  - Liens de promotion "Turbo"
+  - Bannière "Bonus Go & Freeleech"
