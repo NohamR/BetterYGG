@@ -1,9 +1,11 @@
 # BetterYGG
-Chrome extension for the website yggtorrent.gg
+Chrome extension for the website yggtorrent.org
 
 Retrouvez l'extension sur: https://chrome.google.com/webstore/detail/betterygg/dcheoaaanknbllbfccknfmiekbekkkhk
 
-Cette extension conçue pour le site yggtorrent.gg permet de télécharger des torrents sans être authentifié. Pour cela rendez vous dans les options de l'extension et introduisez votre token Ygg. Ce token est disponible dans l'onglet mon compte du site.
+Cette extension conçue pour le site yggtorrent.org permet de télécharger des torrents sans être authentifié. Pour cela rendez vous dans les options de l'extension et introduisez votre token Ygg. Ce token est disponible dans l'onglet mon compte du site.
+
+Note: Cette extension utilise désormais yggapi.eu pour le téléchargement des torrents (API non officielle).
 
 Grosse fonctionnalité supplémentaire:
 Ajout d'un formulaire qui peut être soumis sur un channel discord, ajoutez le webhook de celui ci dans les options ainsi que le pseudo désiré. Le format du message soumis est le suivant: {"title":"titre","season":"numéro de saison","épisode":"numéro de l’épisode","id":"id du torrent","quality":"qualité","type":"nom de la catégorie"}
@@ -24,3 +26,7 @@ Ajustements mineurs:
 [1.2]
 - Le tri et l'ordre des recherches est personnalisable dans les options
 - Correction du tri par nbr de commentaire qui ne fonctionne pas de base...
+
+[1.2.9]
+- Mise à jour vers yggtorrent.org
+- Utilisation de yggapi.eu pour le téléchargement des torrents
